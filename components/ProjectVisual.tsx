@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 type VisualProps = {
   id: string;
 };
@@ -157,7 +159,7 @@ function ShopVisual() {
   );
 }
 
-const visuals: Record<string, () => JSX.Element> = {
+const visuals: Record<string, () => ReactElement> = {
   "ai-chatbot": ChatbotVisual,
   "room-booking": BookingVisual,
   "ai-translation": TranslationVisual,
