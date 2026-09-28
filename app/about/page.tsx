@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { aboutProfile, experience, projectTypes, strengths, tools } from "@/data/about";
+import { aboutProfile, projectTypes, strengths, tools } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,12 +11,18 @@ export default function AboutPage() {
   return (
     <div className="subpage">
       <section className="about-intro">
-        <div>
+        <div className="about-intro__visual">
+          <img className="about-frame" src="/profile_1.jpg" alt="Amanda Lam" />
+        </div>
+        <div className="about-intro__copy">
           <p className="eyebrow">About Me</p>
           <h1 className="about-name">{aboutProfile.name}</h1>
           <p className="lede">{aboutProfile.title}</p>
-          <p>{aboutProfile.summary}</p>
           <dl className="profile-facts">
+            <div>
+              <dt>Years of experience</dt>
+              <dd>{aboutProfile.experience}</dd>
+            </div>
             <div>
               <dt>Location and work mode</dt>
               <dd>{aboutProfile.location}</dd>
@@ -31,26 +37,17 @@ export default function AboutPage() {
             </div>
           </dl>
         </div>
-        <div className="about-intro__visual">
-          <img className="about-frame" src="/profile_1.jpg" alt="Amanda Lam" />
-        </div>
       </section>
 
       <section className="about-section" aria-labelledby="summary-heading">
-        <h2 id="summary-heading">Professional summary</h2>
-        <h3 className="about-label">Years of experience</h3>
-        <ul className="case-list">
-          {experience.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <h3 className="about-label">Types of projects delivered</h3>
+        <h2 id="summary-heading">Professional Summary</h2>
+        <h3 className="about-label">Types of Projects Delivered</h3>
         <ul className="pill-list">
           {projectTypes.map((type) => (
             <li key={type}>{type}</li>
           ))}
         </ul>
-        <h3 className="about-label">Core strengths as an IT project manager</h3>
+        <h3 className="about-label">Core Strengths as an IT Project Manager & BA</h3>
         <ul className="info-grid">
           {strengths.map((item) => (
             <li key={item.title} className="info-card">

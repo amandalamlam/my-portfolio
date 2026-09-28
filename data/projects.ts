@@ -34,7 +34,7 @@ export const projects: Project[] = [
     teaser:
       "An intent-based chatbot for an established financial services enterprise, supporting 24/7 self-service for policy, claims, payments, and account enquiries.",
     caseStudy: {
-      scale: "Established enterprise",
+      scale: "Established Enterprise",
       role: "Business Analyst (Business-side, Customer Experience Focus)",
       context: [
         "Developed an intent-based, rule-driven AI chatbot to support 24/7 customer self-service across policy management, claims, payments, and account enquiries. The primary goals were to reduce customer service workload and extend service availability beyond office hours.",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     teaser:
       "A real-time, self-service meeting-room system for a large financial services enterprise, replacing manual forms, spreadsheets, and email confirmations.",
     caseStudy: {
-      scale: "Large enterprise",
+      scale: "Large Enterprise",
       role: "IT Project Manager",
       context: [
         "The organization relied on a manual meeting-room booking process involving e-forms, Excel schedule checks, and email confirmations handled by administrative staff. The process was inefficient, error-prone, and created unnecessary workload for internal teams.",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     teaser:
       "An AI translation platform for IPO prospectuses and financial reports, with a customized model for each client organization.",
     caseStudy: {
-      scale: "Mid-to-large enterprise",
+      scale: "Mid-to-large Enterprise",
       role: "IT Project Manager",
       context: [
         "The organization provided professional translation services for IPO prospectuses and financial reports, where accuracy and terminology consistency are critical. To improve efficiency and scalability, an AI-powered translation platform was developed, allowing customized translation models for individual client organizations.",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
   },
   {
     id: "card-break",
-    title: "Card Break E-Commerce Platform",
+    title: "E-Commerce Platform",
     industry: "Personal Project / Hands-on Vibe-Coding Build",
     teaser:
       "A personal, hands-on build of an e-commerce shop for card breaks, taken from the buying flow through to a working storefront.",

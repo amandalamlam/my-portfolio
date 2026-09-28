@@ -8,11 +8,12 @@ export const site = {
   heroText:
     "Delivering digital products and workflow automation initiatives, including AI chatbot and platform development, across startups and enterprise environments.",
   email: "amandalamky@gmail.com",
-  mobileDisplay: "+852 6236 2535",
-  mobileTel: "tel:+85262362535",
+  mobileDisplay: "+852 5526 3566",
+  mobileTel: "tel:+85255263566",
   availability: [
-    "Open to discuss freelance and contract opportunities from May 2026.",
+    "Open to discuss freelance and contract opportunities.",
     "Engagement timing and scope can be discussed based on project needs.",
+    "Please contact me via the inquiry form or WhatsApp for more information.",
   ],
   whatsappUrl: "https://wa.me/85255263566",
   /** Paste the public LinkedIn profile URL here when you have it. */

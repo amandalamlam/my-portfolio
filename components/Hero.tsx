@@ -23,6 +23,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero__art" aria-hidden="true">
+          <img className="hero__shape" src="/yellow-triangle.png" alt="" />
           <div className="hero__photo">
             <img src="/profile_2.jpg" alt="" />
           </div>

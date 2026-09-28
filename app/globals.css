@@ -146,16 +146,20 @@ main {
 /* Hero */
 
 .hero {
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
   background: #fff;
+  padding-bottom: 10px;
 }
 
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
-  gap: 28px;
-  padding: 8px var(--page-pad) 28px;
+  align-items: start;
+  gap: 20px;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 8px var(--page-pad) 20px;
 }
 
 .hero__copy {
@@ -198,15 +202,34 @@ main {
 }
 
 .hero__art {
-  width: min(72vw, 280px);
+  position: relative;
+  z-index: 1;
+  width: min(78vw, 300px);
   max-width: 100%;
   height: auto;
-  justify-self: center;
-  margin: 0 auto 12px;
+  justify-self: end;
+  margin: 12px calc(-1 * var(--page-pad)) 16px 0;
+  overflow: visible;
+}
+
+.hero__shape {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 108%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 
 .hero__photo {
-  width: 100%;
+  position: relative;
+  z-index: 2;
+  width: 86%;
+  margin-top: 10%;
+  margin-left: 0;
   border-radius: 1.5rem;
   overflow: hidden;
   background: #efeae2;
@@ -315,7 +338,7 @@ button:focus-visible {
 
 .projects {
   background: var(--soft);
-  padding: 72px var(--page-pad) 88px;
+  padding: 40px var(--page-pad) 72px;
 }
 
 #projects {
@@ -327,7 +350,7 @@ button:focus-visible {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .section-title span {
@@ -613,23 +636,36 @@ button:focus-visible {
 
 .about-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-  gap: 28px 56px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
   padding-top: 48px;
   padding-bottom: 12px;
 }
 
 .about-intro__visual {
-  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  width: 100%;
+  max-width: 360px;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 1.5rem;
 }
 
 .about-frame {
   display: block;
   width: 100%;
   height: auto;
-  border: 10px solid var(--yellow);
+  border-radius: 1.5rem;
   object-fit: cover;
+  object-position: 48% 42%;
+  box-shadow: 0 18px 40px rgba(17, 24, 39, 0.14);
+}
+
+.about-intro__copy {
+  min-width: 0;
 }
 
 .about-intro h1.about-name {
@@ -753,12 +789,12 @@ button:focus-visible {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.1fr);
-  gap: 28px 56px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+  gap: 32px 48px;
+  align-items: start;
   width: 100%;
   padding-top: 64px;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
 }
 
 .contact-grid h1 {
@@ -770,23 +806,151 @@ button:focus-visible {
   margin: 0 0 16px;
 }
 
-.contact-list {
-  display: grid;
-  gap: 16px;
-  margin: 8px 0 18px;
+.contact-grid__copy .lede {
+  max-width: 440px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
 
-.contact-list dt {
-  margin-bottom: 4px;
-  font-size: 0.72rem;
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 10px 18px;
+  border: 1.5px solid #25d366;
+  border-radius: 999px;
+  color: #128c7e;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: #fff;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.contact-list dd {
+.contact-whatsapp:hover {
+  transform: translateY(-1px);
+  background: #25d366;
+  color: #fff;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(18, 140, 126, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.contact-grid__form {
+  width: 100%;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  background: #f4f4f2;
+  border-radius: 12px;
+}
+
+.contact-form__field {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form__field span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.contact-form__field abbr {
+  text-decoration: none;
+  color: #b45309;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  padding: 12px 14px;
+  outline: none;
+  resize: vertical;
+}
+
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.35);
+}
+
+.contact-form__field textarea {
+  min-height: 148px;
+}
+
+.contact-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.contact-form__spacer {
+  flex: 1;
+}
+
+.contact-form__status {
+  flex: 1;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.contact-form__status--ok {
+  color: #166534;
+}
+
+.contact-form__status--error {
+  color: #b91c1c;
+}
+
+.contact-form__submit {
+  margin-left: auto;
+  border: 0;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  padding: 11px 22px;
+  cursor: pointer;
+}
+
+.contact-form__submit:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
 }
 
 .contact-wave {
@@ -798,32 +962,82 @@ button:focus-visible {
 
 @media (min-width: 768px) {
   .hero__grid {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 24px 32px;
-    padding: 12px var(--page-pad) 28px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+    align-items: center;
+    gap: 2rem;
+    min-height: 480px;
+    padding: 0 var(--page-pad) 20px;
   }
 
   .hero__copy {
-    max-width: 520px;
-    padding: 36px 0 48px;
+    max-width: 480px;
+    padding: 32px 0 24px;
   }
 
   .hero__art {
-    width: clamp(168px, 28vw, 320px);
-    max-width: 100%;
-    height: auto;
-    justify-self: end;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    min-height: 440px;
+    justify-self: stretch;
     margin: 0;
+  }
+
+  .hero__shape {
+    top: 0;
+    right: 0;
+    width: min(110%, 520px);
+  }
+
+  .hero__photo {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 52%;
+    width: clamp(210px, 72%, 340px);
+    margin: 0;
+    transform: translateY(-50%);
+  }
+
+  .about-intro {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: stretch;
+  }
+
+  .about-intro__visual {
+    position: relative;
+    max-width: 360px;
+    height: auto;
+    min-height: 100%;
+    align-self: stretch;
+  }
+
+  .about-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
   }
 }
 
 @media (min-width: 1200px) {
   .hero__grid {
-    gap: 28px 48px;
+    gap: 2.5rem;
+    min-height: 500px;
   }
 
   .hero__art {
-    width: clamp(220px, 26vw, 380px);
+    min-height: 460px;
+  }
+
+  .hero__shape {
+    width: min(100%, 560px);
+  }
+
+  .hero__photo {
+    width: clamp(250px, 68%, 360px);
   }
 }
 
@@ -843,19 +1057,30 @@ button:focus-visible {
     padding: 28px 24px 32px;
   }
 
-  .about-intro,
+  .facts,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .about-intro__visual {
-    order: -1;
-    max-width: 520px;
+  .contact-form__footer {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .facts,
-  .info-grid {
-    grid-template-columns: 1fr;
+  .contact-form__submit {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 1rem;
   }
 }
 
@@ -881,7 +1106,7 @@ button:focus-visible {
   }
 
   .projects {
-    padding-top: 56px;
+    padding-top: 32px;
   }
 }
 
@@ -892,7 +1117,9 @@ button:focus-visible {
 
   .btn:hover,
   .project-card:hover,
-  .social a:hover {
+  .social a:hover,
+  .whatsapp-float:hover,
+  .contact-whatsapp:hover {
     transform: none;
   }
 }
